@@ -11,7 +11,7 @@
 
 [core]
   pager = less -FRSX
-  editor = code --wait
+  editor = antigravity --wait
 
 [alias]
   co = checkout

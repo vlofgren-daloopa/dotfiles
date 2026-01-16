@@ -42,21 +42,21 @@ if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
 fi
 cd "$CURRENT_DIR"
 
-# Symlink VS Code settings and keybindings to the present `settings.json` and `keybindings.json` files
+# Symlink Antigravity settings and keybindings to the present `settings.json` and `keybindings.json` files
 # If it's a macOS
 if [[ `uname` =~ "Darwin" ]]; then
-  CODE_PATH=~/Library/Application\ Support/Code/User
+  ANTIGRAVITY_PATH=~/Library/Application\ Support/Antigravity/User
 # Else, it's a Linux
 else
-  CODE_PATH=~/.config/Code/User
+  ANTIGRAVITY_PATH=~/.config/Antigravity/User
   # If this folder doesn't exist, it's a WSL
-  if [ ! -e $CODE_PATH ]; then
-    CODE_PATH=~/.vscode-server/data/Machine
+  if [ ! -e $ANTIGRAVITY_PATH ]; then
+    ANTIGRAVITY_PATH=~/.antigravity-server/data/Machine
   fi
 fi
 
 for name in settings.json keybindings.json; do
-  target="$CODE_PATH/$name"
+  target="$ANTIGRAVITY_PATH/$name"
   backup $target
   symlink $PWD/$name $target
 done
